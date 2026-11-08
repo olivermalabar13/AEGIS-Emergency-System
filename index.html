@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AEGIS | Emergency Preparedness</title>
+
+    <!-- Connect our CSS file -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Main application -->
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <h2>AEGIS<span>.</span></h2>
+                <p>EMERGENCY SYSTEM</p>
+            </div>
+
+            <nav>
+                <a href="#dashboard">Dashboard</a>
+                <a href="#assessment">Assessment</a>
+                <a href="#inventory">Inventory</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p>AEGIS v1.0</p>
+                <small>Preparedness starts here.</small>
+            </div>
+
+        </aside>
+
+        <!-- Main content -->
+        <main class="main-content">
+
+            <header class="topbar">
+                <div>
+                    <p class="top-label">EMERGENCY MANAGEMENT</p>
+                    <h1>Preparedness Center</h1>
+                </div>
+
+                <div class="status">
+                    SYSTEM ONLINE
+                </div>
+            </header>
+
+            <!-- Dashboard View -->
+            <section id="dashboard"></section>
+
+            <!-- Assessment View -->
+            <section id="assessment"></section>
+
+            <!-- Inventory View -->
+            <section id="inventory"></section>
+
+        </main>
+
+    </div>
+
+    <!-- JavaScript entry point -->
+    <script type="module" src="js/controller.js"></script>
+
+</body>
+</html>

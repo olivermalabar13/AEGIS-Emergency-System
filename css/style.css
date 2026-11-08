@@ -1,0 +1,509 @@
+
+/* ===================================
+   AEGIS - GLOBAL SETTINGS
+=================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0b1220;
+    color: #e5edf5;
+    line-height: 1.6;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+
+/* ===================================
+   MAIN APPLICATION
+=================================== */
+
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* ===================================
+   SIDEBAR
+=================================== */
+
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+    background: #111c2d;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #263449;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.logo h2 {
+    font-size: 30px;
+    letter-spacing: 3px;
+}
+
+.logo span {
+    color: #22c5b5;
+}
+
+.logo p {
+    font-size: 10px;
+    color: #8292a8;
+    letter-spacing: 2px;
+    margin-top: 5px;
+}
+
+nav {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #a9b7c9;
+    padding: 14px;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+nav a:hover {
+    background: #1d3047;
+    color: #22c5b5;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    color: #8292a8;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+
+/* ===================================
+   MAIN CONTENT
+=================================== */
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    margin-left: 250px;
+    padding: 35px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    gap: 15px;
+}
+
+.top-label {
+    color: #22c5b5;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.topbar h1 {
+    font-size: 28px;
+}
+
+.status {
+    color: #22c5b5;
+    border: 1px solid #23665f;
+    background: #12332f;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+
+/* ===================================
+   SECTION HEADINGS
+=================================== */
+
+section {
+    margin-bottom: 40px;
+}
+
+.section-heading {
+    margin-bottom: 22px;
+}
+
+.section-heading h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.section-heading > p:last-child {
+    color: #8292a8;
+    font-size: 14px;
+}
+
+
+/* ===================================
+   DASHBOARD CARDS
+=================================== */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.dashboard-card {
+    background: #111c2d;
+    border: 1px solid #263449;
+    border-radius: 12px;
+    padding: 24px;
+    transition: 0.2s;
+}
+
+.dashboard-card:hover {
+    border-color: #22c5b5;
+    transform: translateY(-2px);
+}
+
+.score-card {
+    grid-row: span 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-label {
+    color: #8292a8;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.score-number {
+    font-size: 52px;
+    color: #22c5b5;
+    margin-bottom: 15px;
+}
+
+.stat-number {
+    font-size: 36px;
+    margin-bottom: 5px;
+}
+
+.card-description {
+    color: #8292a8;
+    font-size: 13px;
+}
+
+.readiness-status {
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.high {
+    color: #22c5b5;
+}
+
+.moderate {
+    color: #eab308;
+}
+
+.low {
+    color: #f87171;
+}
+
+
+/* ===================================
+   PROGRESS BAR
+=================================== */
+
+.progress-bar {
+    height: 9px;
+    width: 100%;
+    background: #263449;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}
+
+.progress-fill.high {
+    background: #22c5b5;
+}
+
+.progress-fill.moderate {
+    background: #eab308;
+}
+
+.progress-fill.low {
+    background: #f87171;
+}
+
+.evacuation-card {
+    margin-bottom: 15px;
+}
+
+.evacuation-card h2 {
+    font-size: 28px;
+}
+
+.dashboard-note {
+    color: #8292a8;
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+
+/* ===================================
+   FORMS
+=================================== */
+
+.assessment-form,
+.inventory-form {
+    background: #111c2d;
+    border: 1px solid #263449;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    color: #cbd5e1;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    background: #0b1220;
+    border: 1px solid #34445a;
+    border-radius: 7px;
+    padding: 13px;
+    color: #e5edf5;
+    outline: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.form-group input:focus {
+    border-color: #22c5b5;
+    box-shadow: 0 0 0 2px rgba(34, 197, 181, 0.12);
+}
+
+.form-group input::placeholder {
+    color: #64748b;
+}
+
+
+/* ===================================
+   BUTTONS
+=================================== */
+
+.primary-button {
+    background: #22c5b5;
+    color: #07131d;
+    border: none;
+    border-radius: 7px;
+    padding: 13px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.primary-button:hover {
+    background: #19a99c;
+    transform: translateY(-1px);
+}
+
+.edit-button,
+.delete-button {
+    padding: 9px 14px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.edit-button {
+    background: #1d3047;
+    color: #22c5b5;
+}
+
+.edit-button:hover {
+    background: #29445f;
+}
+
+.delete-button {
+    background: #3b2029;
+    color: #f87171;
+}
+
+.delete-button:hover {
+    background: #562832;
+}
+
+
+/* ===================================
+   VALIDATION ERROR
+=================================== */
+
+.form-error {
+    color: #f87171;
+    font-size: 13px;
+    margin-bottom: 12px;
+    min-height: 0;
+}
+
+
+/* ===================================
+   INVENTORY
+=================================== */
+
+.inventory-form {
+    margin-bottom: 25px;
+}
+
+.inventory-list h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.supply-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    background: #111c2d;
+    border: 1px solid #263449;
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 12px;
+}
+
+.supply-info h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.supply-info p {
+    color: #8292a8;
+    font-size: 13px;
+}
+
+.shortage,
+.complete {
+    display: inline-block;
+    margin-top: 7px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.shortage {
+    color: #f87171;
+}
+
+.complete {
+    color: #22c5b5;
+}
+
+.supply-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.empty-message {
+    color: #8292a8;
+    background: #111c2d;
+    border: 1px dashed #34445a;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+
+/* ===================================
+   RESPONSIVE DESIGN
+=================================== */
+
+@media (max-width: 900px) {
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .score-card {
+        grid-row: auto;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .app {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        min-height: auto;
+    }
+
+    nav {
+        margin-top: 25px;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .sidebar-footer {
+        margin-top: 20px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .supply-item {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+}
