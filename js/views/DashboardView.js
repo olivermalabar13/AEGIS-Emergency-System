@@ -14,10 +14,13 @@ export default class DashboardView extends View {
         const assessment = this.data.assessment;
         const supplies = this.data.supplies;
 
-        // Count supplies that are below their required quantity
+    // Count supplies that are below their required quantity
         const shortageCount = supplies.filter(supply => {
-            return supply.quantity < supply.requiredQuantity;
-        }).length;
+        const quantity = this.formatNumber(supply.quantity);
+        const required = this.formatNumber(supply.requiredQuantity);
+
+        return quantity < required;
+    }).length;
 
         // Determine the readiness color
         let statusClass = "low";
