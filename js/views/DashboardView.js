@@ -2,6 +2,10 @@ import View from "./View.js";
 
 export default class DashboardView extends View {
 
+    formatNumber(value) {
+    const number = Number(value);
+    return Number.isFinite(number) ? number : 0;
+}
     // GENERATE THE DASHBOARD DISPLAY
     generateMarkup() {
 
