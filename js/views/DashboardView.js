@@ -9,7 +9,7 @@ export default class DashboardView extends View {
     // GENERATE THE DASHBOARD DISPLAY
     generateMarkup() {
 
-        const score = this.data.score;
+        const score = this.formatNumber(this.data.score);
         const readiness = this.data.readiness;
         const assessment = this.data.assessment;
         const supplies = this.data.supplies;
