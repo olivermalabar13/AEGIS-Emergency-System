@@ -1,9 +1,4 @@
-
 import View from "./View.js";
-
-// ===================================
-// AEGIS DASHBOARD VIEW
-// ===================================
 
 export default class DashboardView extends View {
 
