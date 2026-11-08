@@ -133,7 +133,7 @@ export default class DashboardView extends View {
                     </p>
 
                     <h2>
-                        ${assessment.evacuationMinutes || 0} Minutes
+                        ${this.formatNumber(assessment.evacuationMinutes)} Minutes
                     </h2>
 
                     <p class="card-description">
