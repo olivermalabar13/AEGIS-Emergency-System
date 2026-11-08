@@ -81,7 +81,7 @@ export default class DashboardView extends View {
                         </h2>
 
                         <p class="card-description">
-                            ${assessment.members} household member(s)
+                            ${this.formatNumber(assessment.members)} household member(s)
                         </p>
 
                     </div>
