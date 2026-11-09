@@ -1,13 +1,8 @@
 
 import View from "./View.js";
 
-// ===================================
-// AEGIS INVENTORY VIEW
-// ===================================
-
 export default class InventoryView extends View {
 
-    // GENERATE THE INVENTORY DISPLAY
     generateMarkup() {
 
         const supplies = this.data || [];
@@ -152,7 +147,6 @@ export default class InventoryView extends View {
     }
 
 
-    // PREVENT USER INPUT FROM BEING TREATED AS HTML
     escapeHTML(value) {
 
         return String(value).replace(/[&<>"']/g, character => {
@@ -172,7 +166,6 @@ export default class InventoryView extends View {
     }
 
 
-    // LISTEN FOR ADDING A SUPPLY
     addHandlerAdd(handler) {
 
         const form = this.parentElement.querySelector(
@@ -203,7 +196,6 @@ export default class InventoryView extends View {
     }
 
 
-    // LISTEN FOR EDIT AND DELETE BUTTONS
     addHandlerActions(handler) {
 
         this.parentElement.addEventListener(
