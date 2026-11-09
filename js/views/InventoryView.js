@@ -189,10 +189,10 @@ export default class InventoryView extends View {
         formData.get("requiredQuantity")
         );
 
-        const supplyData = {
-        name,
-        x`quantity,
-        requiredQuantity
+const supplyData = {
+    name,
+    quantity,
+    requiredQuantity
 };
 
             handler(supplyData);
