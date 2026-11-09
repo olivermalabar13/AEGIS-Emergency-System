@@ -184,15 +184,17 @@ export default class InventoryView extends View {
 
             const formData = new FormData(form);
 
-            const supplyData = {
-                name: formData.get("supplyName").trim(),
+            const name = formData.get("supplyName").trim();
+            const quantity = Number(formData.get("quantity"));
+            const requiredQuantity = Number(
+        formData.get("requiredQuantity")
+        );
 
-                quantity: Number(formData.get("quantity")),
-
-                requiredQuantity: Number(
-                    formData.get("requiredQuantity")
-                )
-            };
+        const supplyData = {
+        name,
+        x`quantity,
+        requiredQuantity
+};
 
             handler(supplyData);
 
