@@ -3,6 +3,13 @@ import View from "./View.js";
 
 export default class InventoryView extends View {
 
+    calculateShortage(supply) {
+    return Math.max(
+        0,
+        supply.requiredQuantity - supply.quantity
+    );
+}
+
     generateMarkup() {
 
         const supplies = this.data || [];
@@ -23,10 +30,7 @@ export default class InventoryView extends View {
 
             supplyMarkup = supplies.map(supply => {
 
-                const shortage = Math.max(
-                    0,
-                    supply.requiredQuantity - supply.quantity
-                );
+               const shortage = this.calculateShortage(supply);
 
                 return `
                     <div class="supply-item">
