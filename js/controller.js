@@ -6,12 +6,8 @@ import InventoryView from "./views/InventoryView.js";
 import DashboardView from "./views/DashboardView.js";
 
 
-// ===================================
-// AEGIS CONTROLLER
-// ===================================
 
 
-// CREATE THE VIEW OBJECTS
 
 const assessmentView = new AssessmentView(
     document.querySelector("#assessment")
@@ -26,19 +22,13 @@ const dashboardView = new DashboardView(
 );
 
 
-// ===================================
-// DISPLAY ALL VIEWS
-// ===================================
 
 function renderViews() {
 
-    // Display household assessment
     assessmentView.render(Model.state.assessment);
 
-    // Display emergency supplies
     inventoryView.render(Model.state.supplies);
 
-    // Prepare dashboard information
     const dashboardData = {
         score: Model.calculateScore(),
 
@@ -49,25 +39,18 @@ function renderViews() {
         supplies: Model.state.supplies
     };
 
-    // Display dashboard
     dashboardView.render(dashboardData);
 
 
-    // Attach form submission handlers
     assessmentView.addHandlerSubmit(handleAssessmentSubmit);
 
     inventoryView.addHandlerAdd(handleAddSupply);
 
 }
 
-
-// ===================================
-// HANDLE ASSESSMENT SUBMISSION
-// ===================================
-
 function handleAssessmentSubmit(data) {
+    assessmentView.clearError();
 
-    // Check household name
     if (data.householdName === "") {
         assessmentView.renderError(
             "Please enter your household name."
@@ -75,7 +58,6 @@ function handleAssessmentSubmit(data) {
         return;
     }
 
-    // Check number of household members
     if (
         !Number.isInteger(data.members) ||
         data.members < 1 ||
@@ -87,7 +69,6 @@ function handleAssessmentSubmit(data) {
         return;
     }
 
-    // Check evacuation time
     if (
         !Number.isInteger(data.evacuationMinutes) ||
         data.evacuationMinutes < 1 ||
@@ -99,28 +80,21 @@ function handleAssessmentSubmit(data) {
         return;
     }
 
-    // Update the Model
     Model.updateAssessment(data);
 
-    // Refresh the application
     renderViews();
 
 }
 
 
-// ===================================
-// HANDLE ADDING A SUPPLY
-// ===================================
 
 function handleAddSupply(data) {
 
-    // Validate supply name
     if (data.name === "") {
         alert("Please enter a supply name.");
         return;
     }
 
-    // Validate available quantity
     if (
         !Number.isInteger(data.quantity) ||
         data.quantity < 0
@@ -129,7 +103,6 @@ function handleAddSupply(data) {
         return;
     }
 
-    // Validate required quantity
     if (
         !Number.isInteger(data.requiredQuantity) ||
         data.requiredQuantity < 1
@@ -138,22 +111,17 @@ function handleAddSupply(data) {
         return;
     }
 
-    // Add the supply to the Model
     Model.addSupply(
         data.name,
         data.quantity,
         data.requiredQuantity
     );
 
-    // Refresh the application
     renderViews();
 
 }
 
 
-// ===================================
-// HANDLE EDIT AND DELETE ACTIONS
-// ===================================
 
 function handleInventoryAction(action, id) {
 
@@ -165,7 +133,6 @@ function handleInventoryAction(action, id) {
     if (!supply) return;
 
 
-    // EDIT SUPPLY
     if (action === "edit") {
 
         const newName = prompt(
@@ -195,7 +162,6 @@ function handleInventoryAction(action, id) {
         const requiredQuantity = Number(newRequired);
 
 
-        // VALIDATE EDITED INFORMATION
         if (
             name === "" ||
             !Number.isInteger(quantity) ||
@@ -208,7 +174,6 @@ function handleInventoryAction(action, id) {
         }
 
 
-        // UPDATE THE MODEL
         Model.editSupply(
             id,
             name,
@@ -219,7 +184,6 @@ function handleInventoryAction(action, id) {
     }
 
 
-    // DELETE SUPPLY
     else if (action === "delete") {
 
         const confirmed = confirm(
@@ -233,18 +197,12 @@ function handleInventoryAction(action, id) {
     }
 
 
-    // REFRESH THE APPLICATION
     renderViews();
 
 }
 
 
-// ===================================
-// START THE APPLICATION
-// ===================================
 
-// Display saved information when the page opens
 renderViews();
 
-// Attach the inventory action listener once
 inventoryView.addHandlerActions(handleInventoryAction);
