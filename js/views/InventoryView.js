@@ -11,11 +11,13 @@ export default class InventoryView extends View {
 
         if (supplies.length === 0) {
 
-            supplyMarkup = `
-                <p class="empty-message">
-                    No emergency supplies added yet.
-                </p>
-            `;
+    const emptyMessage = "No emergency supplies added yet.";
+
+    supplyMarkup = `
+        <p class="empty-message">
+            ${emptyMessage}
+        </p>
+    `;
 
         } else {
 
