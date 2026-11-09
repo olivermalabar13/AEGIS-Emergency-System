@@ -1,4 +1,3 @@
-
 import View from "./View.js";
 
 export default class InventoryView extends View {
@@ -214,11 +213,9 @@ export default class InventoryView extends View {
 
                 if (!button) return;
 
-                const action = button.dataset.action;
+                const { action, id } = button.dataset;
 
-                const id = Number(button.dataset.id);
-
-                handler(action, id);
+handler(action, Number(id));
 
             }
         );
