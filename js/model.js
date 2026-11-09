@@ -1,12 +1,5 @@
-
-// ===================================
-// AEGIS MODEL
-// ===================================
-
-// Load saved data from LocalStorage
 const savedData = localStorage.getItem("aegisData");
 
-// Create the main state object
 export const state = savedData
     ? JSON.parse(savedData)
     : {
@@ -20,13 +13,11 @@ export const state = savedData
     };
 
 
-// SAVE DATA
 export function saveData() {
     localStorage.setItem("aegisData", JSON.stringify(state));
 }
 
 
-// UPDATE HOUSEHOLD ASSESSMENT
 export function updateAssessment(data) {
 
     state.assessment = data;
@@ -35,7 +26,6 @@ export function updateAssessment(data) {
 }
 
 
-// ADD A SUPPLY
 export function addSupply(name, quantity, requiredQuantity) {
 
     const newSupply = {
@@ -51,7 +41,6 @@ export function addSupply(name, quantity, requiredQuantity) {
 }
 
 
-// EDIT A SUPPLY
 export function editSupply(id, name, quantity, requiredQuantity) {
 
     const supply = state.supplies.find(item => item.id === id);
@@ -66,7 +55,6 @@ export function editSupply(id, name, quantity, requiredQuantity) {
 }
 
 
-// DELETE A SUPPLY
 export function deleteSupply(id) {
 
     state.supplies = state.supplies.filter(item => item.id !== id);
@@ -75,7 +63,6 @@ export function deleteSupply(id) {
 }
 
 
-// CALCULATE PREPAREDNESS SCORE
 export function calculateScore() {
 
     let supplyScore = 0;
@@ -102,7 +89,6 @@ export function calculateScore() {
     }
 
     
-// Check evacuation readiness
 let evacuationScore = 0;
 
 if (
@@ -120,7 +106,6 @@ else if (state.assessment.evacuationMinutes > 30) {
 }
 
 
-    // Supplies are worth 80%, evacuation is worth 20%
     const finalScore = (supplyScore * 0.8) +
                        (evacuationScore * 0.2);
 
@@ -128,7 +113,6 @@ else if (state.assessment.evacuationMinutes > 30) {
 }
 
 
-// CLASSIFY PREPAREDNESS LEVEL
 export function getReadinessLevel() {
 
     const score = calculateScore();
