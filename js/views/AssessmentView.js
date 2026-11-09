@@ -1,9 +1,6 @@
 
 import View from "./View.js";
 
-// ===================================
-// AEGIS ASSESSMENT VIEW
-// ===================================
 
 export default class AssessmentView extends View {
 
@@ -43,6 +40,10 @@ export default class AssessmentView extends View {
 <input
     type="number"
     id="members"
+    name="members"
+    min="1"
+    max="30"
+    placeholder="Example: 4"
     value="${this.data.members || 1}"
 >
                     </div>
@@ -80,7 +81,6 @@ export default class AssessmentView extends View {
     }
 
 
-    // LISTEN FOR FORM SUBMISSION
     addHandlerSubmit(handler) {
 
         const form = this.parentElement.querySelector(
@@ -103,14 +103,12 @@ export default class AssessmentView extends View {
                 )
             };
 
-            // Send the submitted information to the Controller
             handler(assessmentData);
 
         });
     }
 
 
-    // DISPLAY VALIDATION ERROR
     renderError(message) {
 
         const errorElement = this.parentElement.querySelector(
@@ -121,7 +119,6 @@ export default class AssessmentView extends View {
     }
 
 
-    // CLEAR VALIDATION ERROR
     clearError() {
 
         const errorElement = this.parentElement.querySelector(
