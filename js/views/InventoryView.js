@@ -12,7 +12,7 @@ export default class InventoryView extends View {
 
     generateMarkup() {
 
-        const supplies = this.data || [];
+        const supplies = Array.isArray(this.data) ? this.data : [];
 
         let supplyMarkup = "";
 
